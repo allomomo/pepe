@@ -32,3 +32,10 @@ def store_mysql(filepath):
 
 if __name__ == '__main__':
     store_mysql('Activation_code.txt')
+/**
+ * Returns the filename relative to the project root and using `/` as separators
+ */
+function getRelativeFilename(context: eslint.Rule.RuleContext): string {
+	const filename = path.normalize(context.getFilename());
+	return filename.substring(REPO_ROOT.length).replace(/\\/g, '/');
+}
